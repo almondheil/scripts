@@ -1,0 +1,5 @@
+#!/bin/sh
+
+if /usr/bin/checkupdates; then
+	/usr/bin/notify-send -u low "System updates are ready, might wanna deal with that."
+fi
