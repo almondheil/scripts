@@ -7,10 +7,7 @@ if [ -z $EDITOR ]; then
 fi
 
 if [ ! -d $NOTEDIR ]; then
-	echo "Directory ~/Notes does not exist, create it? [y/N]"
-	# TODO do input n stuff, good shit
-	echo "But I haven't implemented this yet lol."
-	exit 1
+	[[ "$(read -e -p 'Directory ~/Notes does not exist, create it? [y/N]> '; echo $REPLY)" == [Yy]* ]] && mkdir -p $NOTEDIR || exit 1
 fi
 
 if [ $# -eq 0 ]; then
