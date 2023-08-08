@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ "$EUID" -eq 0 ]; then
+	echo "You seem to be running this script as root."
+	echo "Please don't do that!"
+	exit 1
+fi
+
+echo "Updating packages and AUR (paru -Syu)"
+paru -Syu
+echo -e "\nUpdating Flatpak (flatpak update)"
+flatpak update
+exit 0
