@@ -21,7 +21,7 @@ if [ $# -eq 0 ]; then
 	fi
 	$EDITOR "$NOTEDIR$result"
 else
-	$EDITOR "$NOTEDIR$(date '+%Y%m%d')-$1.txt"
+	$EDITOR "$NOTEDIR$(date '+%Y%m%d')-$1.md"
 fi
 
 exit 0
