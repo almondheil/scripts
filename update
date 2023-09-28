@@ -18,8 +18,8 @@ case $1 in
 		DEFAULT_YES="-y"
 		;;
 	--yes)
-		$PACMAN_YES="--noconfirm"
-		$DEFAULT_YES="-y"
+		PACMAN_YES="--noconfirm"
+		DEFAULT_YES="-y"
 		;;
 esac
 
