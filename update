@@ -60,3 +60,13 @@ if command -v flatpak > /dev/null; then
 	echo "$ flatpak update $DEFAULT_YES"
 	flatpak update $DEFAULT_YES
 fi
+
+# on fedora, use the needs-restarting util to check if a reboot is needed
+if command -v needs-restarting >/dev/null && ! needs-restarting -r >/dev/null; then
+	echo "System should be rebooted! (needs-restarting -r)"
+fi
+
+# on debians, check the presence of /var/run/reboot-required to check if a reboot is needed
+if [ -f /var/run/reboot-required ]; then
+	echo "System should be rebooted! (/var/run/reboot-required)"
+fi
