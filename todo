@@ -2,8 +2,7 @@
 
 if [ -d "$HOME/Todo" ]
 then
-	$EDITOR "$HOME/Todo/TODO.md"
+	xdg-open "$HOME/Todo/TODO.md"
 else
-	$EDITOR "$HOME/TODO.md"
+	xdg-open "$HOME/TODO.md"
 fi
-
