@@ -54,6 +54,15 @@ if command -v dnf > /dev/null; then
 	sudo dnf update $DEFAULT_YES
 fi
 
+# fwupdmgr
+if command -v fwupdmgr > /dev/null; then
+	echo -e "\nChecking for firmware updates..."
+	echo "$ fwupdmgr refresh"
+	fwupdmgr refresh
+	echo "$ fwupdmgr update"
+	fwupdmgr update $DEFAULT_YES
+fi
+
 # flatpak
 if command -v flatpak > /dev/null; then
 	echo -e "\nUpdating Flatpak packages..."
@@ -63,7 +72,7 @@ fi
 
 # on fedora, use the needs-restarting util to check if a reboot is needed
 if command -v needs-restarting >/dev/null && ! needs-restarting -r >/dev/null; then
-	echo "System should be rebooted! (needs-restarting -r)"
+	echo -e "\nSystem should be rebooted! (needs-restarting -r)"
 fi
 
 # on debians, check the presence of /var/run/reboot-required to check if a reboot is needed
