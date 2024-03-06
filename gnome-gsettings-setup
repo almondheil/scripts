@@ -4,3 +4,6 @@ gsettings set org.gnome.desktop.input-sources xkb-options "['caps:swapescape']"
 
 echo "Unbinding Super+[1-9] for launching apps"
 for i in $(seq 1 9); do gsettings set org.gnome.shell.keybindings switch-to-application-${i} '[]'; done
+
+echo "Unbinding Super+P to change displays"
+gsettings set org.gnome.mutter.keybindings switch-monitor "[]"
