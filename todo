@@ -1,8 +1,14 @@
-#!/bin/bash
+#!/bin/sh
 
-if [ -d "$HOME/Todo" ]
-then
-	xdg-open "$HOME/Todo/TODO.md"
+# what to open with? $EDITOR, but vi if unset or NULL
+open=${EDITOR:-vi}
+
+# open the actual file
+if [ 0 -eq $# ]; then
+	$open "$HOME/Todo/TODO.txt"
+elif [ 1 -eq $# ]; then
+	$open "$HOME/Todo/TODO-${1}.txt"
 else
-	xdg-open "$HOME/TODO.md"
+	echo "Usage: todo [subject]"
+	exit 1
 fi
